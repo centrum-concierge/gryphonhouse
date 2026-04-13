@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gryphon House – Resident Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Top & bottom gold accent bars */
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, #c09a4a 30%, #e8c97a 50%, #c09a4a 70%, transparent 100%);
+      z-index: 10;
+    }
+    body::before { top: 0; }
+    body::after  { bottom: 0; }
+
+    /* Background image with dark overlay */
+    .bg {
+      position: fixed;
+      inset: 0;
+      background-image: url('/gryphonhouse/background_photo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+
+    .bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.62);
+    }
+
+    /* Main centered content */
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    /* Logo */
+    .logo {
+      width: 190px;
+      margin-bottom: 1.8rem;
+    }
+
+    /* Decorative gold rule */
+    .rule {
+      width: 200px;
+      border: none;
+      border-top: 1px solid rgba(192, 154, 74, 0.7);
+      margin: 0.9rem auto;
+    }
+
+    /* "RESIDENT PORTAL" label */
+    .label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      color: #c09a4a;
+      text-transform: uppercase;
+      margin-bottom: 0.15rem;
+    }
+
+    /* "See You" */
+    .headline-plain {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4.2rem, 10vw, 7rem);
+      font-weight: 300;
+      color: #ffffff;
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+    }
+
+    /* "Soon." */
+    .headline-italic {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4.2rem, 10vw, 7rem);
+      font-weight: 300;
+      font-style: italic;
+      color: #c09a4a;
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Date block */
+    .date-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.3rem;
+    }
+
+    .date-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      color: #c09a4a;
+      text-transform: uppercase;
+    }
+
+    .date-value {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    /* Gold dot separator */
+    .dot {
+      width: 6px;
+      height: 6px;
+      background-color: #c09a4a;
+      border-radius: 50%;
+      margin: 1.2rem auto 1.4rem;
+    }
+
+    /* Powered by footer */
+    .powered {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .powered-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      color: rgba(255, 255, 255, 0.55);
+      text-transform: uppercase;
+    }
+
+    .centrum-logo {
+      height: 72px;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg"></div>
+
+  <div class="container">
+
+    <img src="/gryphonhouse/gryphonhouse-logo-gold.png" alt="Gryphon House" class="logo" />
+
+    <hr class="rule" />
+
+    <p class="label">Resident Portal</p>
+
+    <p class="headline-plain">See You</p>
+    <p class="headline-italic">Soon.</p>
+
+    <hr class="rule" />
+
+    <div class="date-block">
+      <p class="date-label">Account Activation</p>
+      <p class="date-value">May 1st, 2026</p>
+    </div>
+
+    <hr class="rule" />
+
+    <div class="dot"></div>
+
+    <div class="powered">
+      <p class="powered-text">Powered by</p>
+      <img src="/gryphonhouse/new_cen_logo.png" alt="Centrum" class="centrum-logo" />
+    </div>
+
+  </div>
+
+</body>
+</html>
