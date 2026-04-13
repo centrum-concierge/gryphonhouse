@@ -24,13 +24,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build site structure
+        run: |
+          mkdir -p _site/gryphonhouse
+          cp -r landing_page/. _site/gryphonhouse/
+          cat > _site/index.html << 'EOF'
+          <!doctype html>
+          <html>
+            <head>
+              <meta charset="UTF-8" />
+              <meta http-equiv="refresh" content="0; url=https://centrumconcierge.com" />
+              <title>Redirecting…</title>
+            </head>
+            <body>
+              <a href="https://centrumconcierge.com">Redirecting to centrumconcierge.com…</a>
+            </body>
+          </html>
+          EOF
+          echo 'centrumconcierge.net' > _site/CNAME
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: landing_page
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
